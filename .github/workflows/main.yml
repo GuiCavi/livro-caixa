@@ -1,25 +1,25 @@
 on:
   push:
     branches:
-    - main 
-    
+    - main
+
 jobs:
   build:
     name: Build front-end
     runs-on: ubuntu-18.04
     steps:
     - uses: actions/checkout@v1
-    
+
     - name: Enter front directory
       run: cd ./front
-      
+
     - name: Setup Node.js environment
       uses: actions/setup-node@v3.6.0
       with:
-        node-version-file: .nvmrc
+        node-version-file: ./front/.nvmrc
 
     - name: Install yarn
       run: npm i -g yarn
-      
+
     - name: Install dependencies
       run: yarn
