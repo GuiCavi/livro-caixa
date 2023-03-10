@@ -3,24 +3,42 @@ on:
     branches:
     - main
     - feat/set-action
-    
+
 jobs:
   build:
     name: Build front-end
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-22.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
     steps:
-    - uses: actions/checkout@v1
-    
-    - name: Enter front directory
-      run: cd ./front
-      
-    - name: Setup Node.js environment
+    - name: Checkout
+      uses: actions/checkout@v1
+
+    - name: Setup Node
       uses: actions/setup-node@v3.6.0
       with:
         node-version-file: ./front/.nvmrc
 
     - name: Install yarn
       run: npm i -g yarn
-      
+
     - name: Install dependencies
       run: yarn
+      working-directory: ./front
+
+    - name: Build
+      run: yarn build
+      working-directory: ./front
+
+    - name: Setup pages
+      uses: actions/configure-pages@v3
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: './dist'
+
+    - name: Deploy to GH Pages
+      id: deploy
+      uses: actions/deploy-pages@v1
