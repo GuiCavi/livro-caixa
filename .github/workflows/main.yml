@@ -11,9 +11,6 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v1
 
-    - name: Enter front directory
-      run: cd ./front
-
     - name: Setup Node
       uses: actions/setup-node@v3.6.0
       with:
@@ -24,15 +21,18 @@ jobs:
 
     - name: Install dependencies
       run: yarn
+      working-directory: ./front
 
     - name: Build
       run: yarn build
+      working-directory: ./front
 
     - name: Setup pages
       uses: actions/configure-pages@v3
 
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v1
+      working-directory: ./front
       with:
         path: './dist'
 
