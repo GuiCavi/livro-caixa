@@ -8,12 +8,13 @@ jobs:
     name: Build front-end
     runs-on: ubuntu-18.04
     steps:
-    - uses: actions/checkout@v1
+    - name: Checkout
+      uses: actions/checkout@v1
 
     - name: Enter front directory
       run: cd ./front
 
-    - name: Setup Node.js environment
+    - name: Setup Node
       uses: actions/setup-node@v3.6.0
       with:
         node-version-file: ./front/.nvmrc
@@ -23,3 +24,18 @@ jobs:
 
     - name: Install dependencies
       run: yarn
+
+    - name: Build
+      run: yarn build
+
+    - name: Setup pages
+      uses: actions/configure-pages@v3
+
+    - name: Upload artifact
+      uses: actions/upload-pages-artifact@v1
+      with:
+        path: './dist'
+
+    - name: Deploy to GH Pages
+      id: deploy
+      uses: actions/deploy-pages@v1
