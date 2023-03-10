@@ -1,0 +1,43 @@
+{
+  "name": "livro-caixa",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview",
+    "graph": "ts-node graph.js"
+  },
+  "dependencies": {
+    "@heroicons/react": "^2.0.14",
+    "@types/lodash": "^4.14.191",
+    "eslint": "^8.2.0",
+    "immer": "^9.0.19",
+    "lodash": "^4.17.21",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-use": "^17.4.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@typescript-eslint/eslint-plugin": "^5.50.0",
+    "@typescript-eslint/parser": "^5.50.0",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "autoprefixer": "^10.4.13",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-react": "^7.28.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
+    "madge": "^6.0.0",
+    "postcss": "^8.4.21",
+    "semver": "^7.3.8",
+    "tailwindcss": "^3.2.7",
+    "typescript": "*",
+    "vite": "^4.1.0"
+  }
+}

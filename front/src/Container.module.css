@@ -1,0 +1,23 @@
+.container {
+  display: grid;
+  grid-template:
+    "credit charges"
+    "debit charges"
+  ;
+
+  grid-template-columns: 30% [charges] 1fr;
+  grid-template-rows: 49% [charges] 1fr;
+  gap: 5px;
+}
+
+.credit {
+  grid-area: credit;
+}
+
+.debit {
+  grid-area: debit;
+}
+
+.charges {
+  grid-area: charges;
+}
