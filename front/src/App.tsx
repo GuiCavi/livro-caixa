@@ -55,7 +55,7 @@ function App() {
             <tbody>
               {
                 state.charges.map((charge) => (
-                  <tr key={charge[2]} className="border-b border-gray-300">
+                  <tr key={charge.id} className="border-b border-gray-300">
                     <td className="p-4">{charge.id}</td>
                     <td className="p-4">{charge.description}</td>
                     <td className="p-4">{charge.date}</td>
